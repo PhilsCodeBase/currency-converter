@@ -63,7 +63,7 @@ export default function CurrencyConverter() {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch("https://api.frankfurter.app/latest?from=EUR", { signal: AbortSignal.timeout(6000) });
+      const res = await fetch("https://api.frankfurter.dev/v1/latest?from=EUR", { signal: AbortSignal.timeout(6000) });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
       setRates({ EUR: 1, ...data.rates });
